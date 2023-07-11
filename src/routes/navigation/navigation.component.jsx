@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import { Fragment } from "react";
-import { ReactComponent as MockLogo} from "../../assets/007 crown.svg"
+import { ReactComponent as MockLogo} from "../../assets/koushik_logo.svg"
 import "./navigation.styles.scss"
 
 const Navigation = () => {
