@@ -6,15 +6,37 @@ const defaultFormFields = {
     displayName: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
 }
 
 const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { displayName, email, password, confirmPassword } = formFields
+    const resetFormFields = () => {
+        setFormFields(defaultFormFields);
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        if(password != confirmPassword){
+            alert("passwords do not match")
+            return
+        } 
+
+        try {
+            const {user} = await createUserAuthWithEmailAndPassword(
+                email,
+                password
+            )
+            await createUserDocumentFromAuth(user, {displayName})
+            resetFormFields()
+        } catch (error) {
+            if (error.code == "auth/email-already-in-use") {
+                alert("email already in use, try logging in")
+            } else (
+                console.log("error creating user" , error)
+            )
+        }
     }
 
     const handleEvent = (event) => {
@@ -25,7 +47,7 @@ const SignUpForm = () => {
     return (
         <div>
             <h1>sign up</h1>
-        <form onSubmit={() => {}}>
+        <form onSubmit={handleSubmit}>
             <label>Display Name</label>
             <input type="text" required onChange={handleEvent} name="displayName" value={displayName}/>
             <label>Email</label>

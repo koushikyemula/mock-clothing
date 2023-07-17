@@ -13,7 +13,7 @@ const SignIn = () => {
             <button onClick={logGoogleUser}>
                 sign in with google popup
             </button>
-            <SignUpForm/>
+            <SignUpForm />
         </div>
     )
 }
