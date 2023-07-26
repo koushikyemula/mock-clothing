@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import { Fragment,useContext } from "react";
-import { ReactComponent as MockLogo} from "../../assets/koushik_logo.svg"
+import { ReactComponent as MockLogo} from "../../assets/logo.svg"
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import { UserContext } from "../../contexts/user.context";
 import { CartContext } from "../../contexts/cart.context";
