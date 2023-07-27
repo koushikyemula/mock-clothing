@@ -12,6 +12,8 @@ const defaultFormFields = {
 const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const {email, password} = formFields
+
+
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     }
@@ -22,8 +24,10 @@ const SignInForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await signInUserAuthWithEmailAndPassword(email,password);
+            const {user} = await signInUserAuthWithEmailAndPassword(email,password);
+            
             resetFormFields();
+            
         } catch (error) {
             switch (error.code) {
                 case "auth/wrong-password":
@@ -46,7 +50,7 @@ const SignInForm = () => {
     return (
         <SignInContainer>
             <h2>Already Have An Account?</h2>
-            <span>Try Signing In</span> 
+            <span>Try Signing In</span>
             <form onSubmit={handleSubmit}>
                 <FormInput label="Email" type="email" required onChange={handleChange} name="email" value={email}/>
                 <FormInput label="Password" type="password" required onChange={handleChange} name="password" value={password}/>
