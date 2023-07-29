@@ -13,10 +13,10 @@ const Shop = () => {
     useEffect(() => {
         const getCategoriesMap = async () => {
             const categoryMap = await getCategoriesAndDocuments();
-            setCategoriesMap(categoryMap);
+            dispatch(setCategoriesMap(categoryMap));
         }
         getCategoriesMap()
-    }, [])
+    }, [dispatch])
 
     return (
         <Routes>
