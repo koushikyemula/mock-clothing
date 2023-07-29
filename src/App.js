@@ -14,6 +14,7 @@ import Checkout from "./components/checkout/checkout.component";
 
 const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
@@ -24,6 +25,7 @@ const App = () => {
 
     return unsubscribe;
   }, [dispatch]); //u dont have to pass dispatch here cuz dipatch never updates, i did it to remove the linting error
+
   return (
     <Routes>
       <Route path="/" element={<Navigation />}>
