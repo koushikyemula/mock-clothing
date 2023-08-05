@@ -8,3 +8,8 @@ export const selectCategories = createSelector(
 );
 
 export const selectCategoriesMap = (state) => state.categories.categoriesMap;
+
+export const selectIsLoading = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.isLoading
+);
