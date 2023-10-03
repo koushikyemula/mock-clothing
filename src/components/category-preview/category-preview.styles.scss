@@ -1,23 +1,22 @@
 .category-preview-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 30px;
 
-    h2 {
-      text-align: center;
-    }
-  
-    .title {
-      font-size: 35px;
-      font-weight: 1000;
-      margin-bottom: 25px;
-      cursor: pointer;
-    }
-  
-    .preview {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      column-gap: 20px;
-    }
-  }
-  
+	h2 {
+		text-align: center;
+	}
+
+	.title {
+		font-size: 35px;
+		font-weight: 1000;
+		margin-bottom: 25px;
+		cursor: pointer;
+	}
+
+	.preview {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: 20px;
+	}
+}
